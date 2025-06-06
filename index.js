@@ -22,10 +22,12 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(cors({
-    origin:process.env.FRONTEND_URL,
+    origin:"*",
     credentials:true
 }));
- 
+
+console.log("Allowed origin:", process.env.FRONTEND_URL);
+
 // apis
 app.use("/api/v1/media", mediaRoute);
 app.use("/api/v1/user", userRoute);
